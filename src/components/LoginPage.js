@@ -1,9 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import Input from './Input';
 
+import sendPostRequest from '../utils';
+
 const LoginPage = function () {
+  const [username, updateUsername] = useState('');
+  const [password, updatePassword] = useState('');
+  const [test, updateTestStatus] = useState(true);
+
+  const history = useHistory();
+
+  const handleClick = function () {
+    const fields = { username, password };
+    if (Object.values(fields).every(value => value)) {
+      return updateTestStatus(false);
+    }
+    sendPostRequest('/signup', fields).then(() => {
+      history.push('/signup');
+    });
+  };
+
   return (
     <div>
       <div className='topBar'>
@@ -14,16 +32,16 @@ const LoginPage = function () {
       </div>
       <div className='loginWindow'>
         <h3>Login To your account</h3>
-        <p>Fields shouldn't be empty</p>
+        <p className={test ? 'invisible' : ''}>Fields shouldn't be empty</p>
         <label>
           Username <span>*</span>
         </label>
-        <Input placeholder='John' />
+        <Input placeholder='John' updateChange={updateUsername} />
         <label>
           Password <span>*</span>
         </label>
-        <Input placeholder='John@123' />
-        <button>Login</button>
+        <Input placeholder='John@123' updateChange={updatePassword} />
+        <button onClick={handleClick}>Login</button>
         <span className='signupQuestion'>
           Do not have an account ?<Link to='/signup'>Signup</Link>
         </span>

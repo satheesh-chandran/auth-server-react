@@ -106,3 +106,8 @@ h5 {
   font-weight: 100;
   font-style: italic;
 }
+
+h3 {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}

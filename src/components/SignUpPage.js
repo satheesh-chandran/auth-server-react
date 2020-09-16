@@ -1,31 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Input from './Input';
 
 const SignUpPage = function () {
   return (
     <div>
       <div className='topBar'>
         <span>Authorization Server</span>
+        <div className='homeOptions'>
+          <Link to='/'>Home</Link>
+        </div>
       </div>
       <div className='loginWindow'>
         <h3>Create your account</h3>
         <p>Fields shouldn't be empty</p>
         <label>
+          Name <span>*</span>
+        </label>
+        <Input placeholder='John' />
+        <label>
           Username <span>*</span>
         </label>
-        <input placeholder='John'></input>
+        <Input placeholder='John' />
         <label>
           Email <span>*</span>
         </label>
-        <input placeholder='John@example.com'></input>
+        <Input placeholder='John@example.com' />
         <label>
           Company <span>*</span>
         </label>
-        <input placeholder='Example Pvt Ltd.'></input>
+        <Input placeholder='Example Pvt Ltd.' />
         <label>
           Password <span>*</span>
         </label>
-        <input placeholder='John@123'></input>
+        <Input placeholder='John@123' />
         <button>Signup</button>
         <span className='signupQuestion'>
           Have an account ?<Link to='/login'>Login</Link>

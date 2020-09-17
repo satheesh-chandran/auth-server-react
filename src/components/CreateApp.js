@@ -1,17 +1,18 @@
 import React from 'react';
 import Header from './Header';
+import CreateAppDiv from './CreateAppDiv';
 import NavBar from './Navbar';
 
-const Dashboard = function () {
+const CreateApp = function () {
   return (
     <div>
       <Header links={[{ path: '/logout', text: 'Logout' }]} />
       <div className='dashboard'>
         <NavBar />
-        <div className='dashboard-container'></div>
+        <CreateAppDiv />
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default CreateApp;

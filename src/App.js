@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, useLocation, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 import './auth.css';
@@ -8,6 +8,7 @@ import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import Dashboard from './components/Dashboard';
+import CreateApp from './components/CreateApp';
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
@@ -25,13 +26,16 @@ const App = function () {
           {isLoggedIn ? <Redirect to='/dashboard' /> : <Home />}
         </Route>
         <Route exact path='/login'>
-          <LoginPage />
+          {isLoggedIn ? <Redirect to='/dashboard' /> : <LoginPage />}
         </Route>
         <Route exact path='/signup'>
-          <SignUpPage />
+          {isLoggedIn ? <Redirect to='/dashboard' /> : <SignUpPage />}
         </Route>
         <Route exact path='/dashboard'>
-          <Dashboard />
+          {isLoggedIn ? <Dashboard /> : <Redirect to='/' />}
+        </Route>
+        <Route exact path='/dashboard/createApp'>
+          {isLoggedIn ? <CreateApp /> : <Redirect to='/' />}
         </Route>
       </Switch>
     </div>

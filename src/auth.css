@@ -15,6 +15,7 @@ button {
 
 button {
   font-size: medium;
+  outline: none;
 }
 
 a:hover,

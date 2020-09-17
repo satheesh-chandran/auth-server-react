@@ -117,3 +117,45 @@ h3 {
   visibility: hidden;
   pointer-events: none;
 }
+
+.dashboard {
+  width: 100%;
+  height: 700px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navbar {
+  height: 100%;
+  width: 20%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar a {
+  height: 40px;
+  width: 80%;
+  text-align: start;
+  margin: 2%;
+  padding-left: 2%;
+  line-height: 5vh;
+  font-size: larger;
+  transition: 0.2s;
+}
+
+.activeLink {
+  color: #2ea44f;
+  border: none;
+  background-color: #f2f2f2;
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+}
+
+.dashboard-container {
+  height: 100%;
+  width: 78%;
+  border: 1px solid red;
+}

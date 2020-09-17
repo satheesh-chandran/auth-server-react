@@ -16,7 +16,7 @@ const LoginPage = function () {
 
   const handleClick = function () {
     const fields = { username, password };
-    if (Object.values(fields).every(value => value)) {
+    if (!Object.values(fields).every(value => value)) {
       return updateTestStatus(false);
     }
     sendPostRequest('/api/loginToApp', fields).then(res => {

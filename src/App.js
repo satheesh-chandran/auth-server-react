@@ -9,6 +9,7 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import Dashboard from './components/Dashboard';
 import CreateApp from './components/CreateApp';
+import AppDetails from './components/AppDetails';
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
@@ -36,6 +37,9 @@ const App = function () {
         </Route>
         <Route exact path='/dashboard/createApp'>
           {isLoggedIn ? <CreateApp /> : <Redirect to='/' />}
+        </Route>
+        <Route exact path='/dashboard/app/:id'>
+          <AppDetails />
         </Route>
       </Switch>
     </div>

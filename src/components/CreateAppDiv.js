@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import Input from './Input';
-import { useHistory } from 'react-router-dom';
 import sendPostRequest from '../utils';
 
 const CreateAppDiv = function () {
   const [name, updateName] = useState('');
   const [homePage, updateHomepage] = useState('');
-  const [description, updateDescription] = useState('');
   const [callbackUrl, updateCallback] = useState('');
+  const [description, updateDescription] = useState('');
   const [test, updateTestStatus] = useState(true);
+  const [isError, updateRegisterStatus] = useState(false);
 
   const history = useHistory();
 
@@ -18,11 +19,22 @@ const CreateAppDiv = function () {
       return updateTestStatus(false);
     }
     sendPostRequest('/api/createApp', fields).then(res => {
-      if (res.status) {
-        return history.push('/');
+      if (res.appId) {
+        return history.push(`/dashboard/app/${res.appId}`);
       }
+      updateRegisterStatus(true);
     });
   };
+
+  if (isError)
+    return (
+      <div className='dashboard-container'>
+        <div className='createAppDiv'>
+          <h3>Couldn't Register app</h3>
+          <Link to='/dashboard/createApp'>Try again</Link>
+        </div>
+      </div>
+    );
 
   return (
     <div className='dashboard-container'>

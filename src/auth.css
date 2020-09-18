@@ -160,4 +160,10 @@ h3 {
   height: 100%;
   width: 78%;
   border: 1px solid red;
+  text-align: start;
+  padding-left: 1%;
+}
+
+.dashboard-container h3 span {
+  color: red;
 }

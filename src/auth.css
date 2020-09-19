@@ -167,3 +167,52 @@ h3 {
 .dashboard-container h3 span {
   color: red;
 }
+
+.appDiv {
+  width: 100px;
+  height: 20px;
+  margin: 2%;
+  padding: 1%;
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+}
+
+.appDiv a {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.appDiv a:hover {
+  text-decoration: underline;
+  color: #2ea44f;
+}
+
+.addStory {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: inherit;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.addStory > input,
+.addStory > textarea {
+  width: 75%;
+}
+
+.addStory > textarea {
+  font-size: medium;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.addStory > textarea:focus {
+  border: 2px solid powderblue;
+  box-shadow: 0px 0px 10px 0px powderblue;
+}
+
+.addStory > textarea::placeholder {
+  font-style: italic;
+  font-size: medium;
+} 

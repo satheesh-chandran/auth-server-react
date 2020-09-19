@@ -5,6 +5,7 @@ const links = [
   { path: '/dashboard/allStories', text: 'All stories' },
   { path: '/dashboard/profile', text: 'Your profile' },
   { path: '/dashboard/myStories', text: 'Your stories' },
+  { path: '/dashboard/addStory', text: 'Add story' },
   { path: '/dashboard/myApps', text: 'Your apps' },
   { path: '/dashboard/createApp', text: 'Create app' },
   { path: '/dashboard/followers', text: 'Followers' },

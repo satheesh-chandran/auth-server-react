@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 
 import './App.css';
 import './auth.css';
@@ -10,9 +10,14 @@ import SignUpPage from './components/SignUpPage';
 import Dashboard from './components/Dashboard';
 import CreateApp from './components/CreateApp';
 import AppDetails from './components/AppDetails';
+import MyApps from './components/MyApps';
+import Authorize from './components/Authorize';
+import AddStory from './components/AddStory';
+import StoryPage from './components/StoryPage';
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     fetch('/isLoggedIn')
@@ -22,7 +27,7 @@ const App = function () {
 
   return (
     <div className='App'>
-      <Switch>
+      <Switch location={location}>
         <Route exact path='/'>
           {isLoggedIn ? <Redirect to='/dashboard' /> : <Home />}
         </Route>
@@ -38,8 +43,20 @@ const App = function () {
         <Route exact path='/dashboard/createApp'>
           {isLoggedIn ? <CreateApp /> : <Redirect to='/' />}
         </Route>
+        <Route exact path='/dashboard/addStory'>
+          {isLoggedIn ? <AddStory /> : <Redirect to='/' />}
+        </Route>
         <Route exact path='/dashboard/app/:id'>
           <AppDetails />
+        </Route>
+        <Route exact path='/dashboard/story/:id'>
+          <StoryPage />
+        </Route>
+        <Route exact path='/dashboard/myApps'>
+          {isLoggedIn ? <MyApps /> : <Redirect to='/' />}
+        </Route>
+        <Route path={'/login/auth/authorize?clientId=&callbackUrl='}>
+          <Authorize />
         </Route>
       </Switch>
     </div>

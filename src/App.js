@@ -14,6 +14,8 @@ import MyApps from './components/MyApps';
 import Authorize from './components/Authorize';
 import AddStory from './components/AddStory';
 import StoryPage from './components/StoryPage';
+import AllStories from './components/AllStories';
+import MyStories from './components/MyStories';
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
@@ -37,9 +39,9 @@ const App = function () {
         <Route exact path='/signup'>
           {isLoggedIn ? <Redirect to='/dashboard' /> : <SignUpPage />}
         </Route>
-        <Route exact path='/dashboard'>
+        {/* <Route exact path='/dashboard'>
           {isLoggedIn ? <Dashboard /> : <Redirect to='/' />}
-        </Route>
+        </Route> */}
         <Route exact path='/dashboard/createApp'>
           {isLoggedIn ? <CreateApp /> : <Redirect to='/' />}
         </Route>
@@ -54,6 +56,12 @@ const App = function () {
         </Route>
         <Route exact path='/dashboard/myApps'>
           {isLoggedIn ? <MyApps /> : <Redirect to='/' />}
+        </Route>
+        <Route exact path='/dashboard'>
+          {isLoggedIn ? <AllStories /> : <Redirect to='/' />}
+        </Route>
+        <Route exact path='/dashboard/myStories'>
+          {isLoggedIn ? <MyStories /> : <Redirect to='/' />}
         </Route>
         <Route path={'/login/auth/authorize?clientId=&callbackUrl='}>
           <Authorize />

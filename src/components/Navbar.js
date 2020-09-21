@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const links = [
-  { path: '/dashboard/allStories', text: 'All stories' },
+  { path: '/dashboard', text: 'All stories' },
   { path: '/dashboard/profile', text: 'Your profile' },
   { path: '/dashboard/myStories', text: 'Your stories' },
   { path: '/dashboard/addStory', text: 'Add story' },

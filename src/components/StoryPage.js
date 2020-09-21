@@ -10,7 +10,10 @@ const StoryPage = function () {
   const { id } = useParams();
 
   useEffect(() => {
-    sendPostRequest('/api/getStory', { id: +id }).then(res => updateStory(res));
+    sendPostRequest('/api/getStory', { id: +id }).then(res => {
+      console.log(res);
+      updateStory(res);
+    });
   }, []);
 
   return (

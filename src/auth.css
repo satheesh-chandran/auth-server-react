@@ -176,15 +176,29 @@ h3 {
   box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
 }
 
-.appDiv a {
+.appDiv a,
+.story a {
   background-color: white;
   color: black;
   border: none;
 }
 
-.appDiv a:hover {
+.appDiv a:hover,
+.story a:hover {
   text-decoration: underline;
   color: #2ea44f;
+}
+
+.story {
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+  padding: 1%;
+  width: 25%;
+  overflow-x: hidden;
+  margin: 1%;
+}
+
+.story p {
+  margin: 1%;
 }
 
 .addStory {
@@ -215,4 +229,4 @@ h3 {
 .addStory > textarea::placeholder {
   font-style: italic;
   font-size: medium;
-} 
+}

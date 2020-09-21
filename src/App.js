@@ -39,9 +39,6 @@ const App = function () {
         <Route exact path='/signup'>
           {isLoggedIn ? <Redirect to='/dashboard' /> : <SignUpPage />}
         </Route>
-        {/* <Route exact path='/dashboard'>
-          {isLoggedIn ? <Dashboard /> : <Redirect to='/' />}
-        </Route> */}
         <Route exact path='/dashboard/createApp'>
           {isLoggedIn ? <CreateApp /> : <Redirect to='/' />}
         </Route>

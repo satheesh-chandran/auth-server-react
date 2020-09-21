@@ -9,7 +9,7 @@ const Header = function (props) {
   ));
   return (
     <div className='topBar'>
-      <span>Authorization Server</span>
+      <span>Blog</span>
       <div className='homeOptions'>{links}</div>
     </div>
   );

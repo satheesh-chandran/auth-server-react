@@ -159,9 +159,11 @@ h3 {
 .dashboard-container {
   height: 100%;
   width: 78%;
-  border: 1px solid red;
   text-align: start;
   padding-left: 1%;
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .dashboard-container h3 span {
@@ -193,6 +195,7 @@ h3 {
   box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
   padding: 1%;
   width: 25%;
+  height: 10%;
   overflow-x: hidden;
   margin: 1%;
 }
@@ -229,4 +232,40 @@ h3 {
 .addStory > textarea::placeholder {
   font-style: italic;
   font-size: medium;
+}
+
+.storyPage {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.storyPage > div {
+  border-bottom: 1px dashed black;
+}
+.responses {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-bottom: none;
+}
+
+.date {
+  font-style: italic;
+  font-size: small;
+  margin: 0.5%;
+}
+
+.body {
+  font-size: medium;
+  font-weight: 600;
+  margin-bottom: 1%;
+}
+
+.response {
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+  width: 95%;
+  padding: 0.5%;
+  margin: 0 auto;
+  margin: 1%;
 }

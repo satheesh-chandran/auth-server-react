@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 const links = [
   { path: '/dashboard', text: 'All stories' },
-  { path: '/dashboard/profile', text: 'Your profile' },
   { path: '/dashboard/myStories', text: 'Your stories' },
   { path: '/dashboard/addStory', text: 'Add story' },
   { path: '/dashboard/myApps', text: 'Your apps' },
-  { path: '/dashboard/createApp', text: 'Create app' },
-  { path: '/dashboard/followers', text: 'Followers' },
-  { path: '/dashboard/following', text: 'Following' },
-  { path: '/dashboard/findFriends', text: 'Find friends' }
+  { path: '/dashboard/createApp', text: 'Add app' }
+  // { path: '/dashboard/profile', text: 'Your profile' },
+  // { path: '/dashboard/followers', text: 'Followers' },
+  // { path: '/dashboard/following', text: 'Following' },
+  // { path: '/dashboard/findFriends', text: 'Find friends' }
 ];
 
 const Navbar = function () {

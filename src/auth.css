@@ -269,3 +269,17 @@ h3 {
   margin: 0 auto;
   margin: 1%;
 }
+
+.appDetails {
+  margin: 0 auto;
+  margin-top: 1%;
+  padding: 1%;
+  width: 70%;
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+  height: 60%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

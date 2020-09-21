@@ -15,7 +15,6 @@ const StoryPage = function () {
 
   useEffect(() => {
     sendPostRequest('/api/getStory', { id: +id }).then(res => {
-      console.log(res);
       updateStory(res);
     });
   }, [refresh]);

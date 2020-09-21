@@ -18,7 +18,6 @@ const SignUpPage = function () {
 
   const handleClick = function () {
     const fields = { name, username, password, email, company };
-    console.log(fields);
     if (!Object.values(fields).every(value => value !== '')) {
       return updateTestStatus(false);
     }

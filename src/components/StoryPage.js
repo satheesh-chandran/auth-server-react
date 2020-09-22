@@ -15,7 +15,6 @@ const StoryPage = function () {
 
   useEffect(() => {
     sendPostRequest('/api/getStory', { id: +id }).then(res => {
-      console.log(res);
       updateStory(res);
     });
   }, [refresh]);
@@ -24,6 +23,7 @@ const StoryPage = function () {
     const options = { storyId: +id, message };
     sendPostRequest('/api/addResponse', options).then(() => {
       updateRefreshState(state => !state);
+      updateMessage('');
     });
   };
 
@@ -53,6 +53,7 @@ const StoryPage = function () {
               <p>{story.body}</p>
             </div>
             <Input
+              value={message}
               placeholder='You can response to this story'
               updateChange={updateMessage}
             />

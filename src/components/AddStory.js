@@ -22,7 +22,11 @@ const AddStory = function () {
         <NavBar />
         <div className='dashboard-container'>
           <div className='addStory'>
-            <Input placeholder='Enter Title' updateChange={updateTitle} />
+            <Input
+              placeholder='Enter Title'
+              value={title}
+              updateChange={updateTitle}
+            />
             <textarea
               placeholder='Enter body'
               cols='100'

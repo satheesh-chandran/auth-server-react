@@ -44,11 +44,16 @@ const CreateAppDiv = function () {
         <label>
           Application name <span>*</span>
         </label>
-        <Input placeholder='eg: authApp' updateChange={updateName} />
+        <Input
+          value={name}
+          placeholder='eg: authApp'
+          updateChange={updateName}
+        />
         <label>
           Homepage url <span>*</span>
         </label>
         <Input
+          value={homePage}
           placeholder='eg: http://example.com'
           updateChange={updateHomepage}
         />
@@ -56,13 +61,18 @@ const CreateAppDiv = function () {
           Application Description <span>*</span>
         </label>
         <Input
+          value={description}
           placeholder='eg: This is a nice app'
           updateChange={updateDescription}
         />
         <label>
           Callback url <span>*</span>
         </label>
-        <Input placeholder='eg: /sample/path/' updateChange={updateCallback} />
+        <Input
+          value={callbackUrl}
+          placeholder='eg: /sample/path/'
+          updateChange={updateCallback}
+        />
         <button onClick={handleClick}>Register</button>
       </div>
     </div>

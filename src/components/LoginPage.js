@@ -46,11 +46,11 @@ const LoginPage = function () {
         <label>
           Username <span>*</span>
         </label>
-        <Input placeholder='eg: John' updateChange={updateUsername} />
+        <Input placeholder='eg: John' value={username} updateChange={updateUsername} />
         <label>
           Password <span>*</span>
         </label>
-        <Input placeholder='eg: John@123' updateChange={updatePassword} />
+        <Input placeholder='eg: John@123' value={password} updateChange={updatePassword} />
         <button onClick={handleClick}>Login</button>
         <span className='signupQuestion'>
           Do not have an account ?<Link to='/signup'>Signup</Link>

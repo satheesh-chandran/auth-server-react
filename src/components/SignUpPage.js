@@ -48,26 +48,39 @@ const SignUpPage = function () {
         <label>
           Name <span>*</span>
         </label>
-        <Input placeholder='eg: John' updateChange={updateName} />
+        <Input placeholder='eg: John' value={name} updateChange={updateName} />
         <label>
           Username <span>*</span>
         </label>
-        <Input placeholder='eg: John' updateChange={updateUsername} />
+        <Input
+          placeholder='eg: John'
+          value={username}
+          updateChange={updateUsername}
+        />
         <label>
           Email <span>*</span>
         </label>
-        <Input placeholder='eg: John@example.com' updateChange={updateEmail} />
+        <Input
+          placeholder='eg: John@example.com'
+          value={email}
+          updateChange={updateEmail}
+        />
         <label>
           Company <span>*</span>
         </label>
         <Input
+          value={company}
           placeholder='eg: Example Pvt Ltd.'
           updateChange={updateCompany}
         />
         <label>
           Password <span>*</span>
         </label>
-        <Input placeholder='eg: John@123' updateChange={updatePassword} />
+        <Input
+          placeholder='eg: John@123'
+          value={password}
+          updateChange={updatePassword}
+        />
         <button onClick={handleClick}>Signup</button>
         <span className='signupQuestion'>
           Have an account ?<Link to='/login'>Login</Link>

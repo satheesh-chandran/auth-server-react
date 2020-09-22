@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Input = function (props) {
-  const [value, changeValue] = useState('');
-
   const handleChange = function (event) {
-    const text = event.target.value;
-    changeValue(text);
-    props.updateChange(text);
+    props.updateChange(event.target.value);
   };
 
   return (
     <input
       placeholder={props.placeholder}
-      value={value}
+      value={props.value}
       onChange={handleChange}
     ></input>
   );

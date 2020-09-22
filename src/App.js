@@ -7,7 +7,6 @@ import './auth.css';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
-import Dashboard from './components/Dashboard';
 import CreateApp from './components/CreateApp';
 import AppDetails from './components/AppDetails';
 import MyApps from './components/MyApps';

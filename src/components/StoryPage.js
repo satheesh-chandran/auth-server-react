@@ -7,7 +7,7 @@ import NavBar from './Navbar';
 import Input from './Input';
 
 const StoryPage = function () {
-  const [story, updateStory] = useState({});
+  const [story, updateStory] = useState({ responses: [] });
   const { id } = useParams();
 
   const [message, updateMessage] = useState('');
@@ -15,18 +15,27 @@ const StoryPage = function () {
 
   useEffect(() => {
     sendPostRequest('/api/getStory', { id: +id }).then(res => {
+      console.log(res);
       updateStory(res);
     });
   }, [refresh]);
 
   const postResponse = function () {
-    sendPostRequest('/api/addResponse', {
-      storyId: +id,
-      message
-    }).then(() => {
+    const options = { storyId: +id, message };
+    sendPostRequest('/api/addResponse', options).then(() => {
       updateRefreshState(state => !state);
     });
   };
+
+  const responseDivs = story.responses.map(response => {
+    return (
+      <div className='response' key={`response_${response.id}`}>
+        <p>{response.message}</p>
+        <p>{response.username}</p>
+        <p className='date'>{response.receivedAt}</p>
+      </div>
+    );
+  });
 
   return (
     <div>
@@ -51,13 +60,7 @@ const StoryPage = function () {
               Respond
             </button>
             <p style={{ fontWeight: 600 }}>All responses</p>
-            <div>
-              <div className='response'>
-                <p>This is my message</p>
-                <p>By: satheesh</p>
-                <p className='date'>today</p>
-              </div>
-            </div>
+            <div>{responseDivs}</div>
           </div>
         </div>
       </div>

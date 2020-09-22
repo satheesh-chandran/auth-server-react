@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
-import NavBar from './Navbar';
 import { useHistory, Link } from 'react-router-dom';
 
 const MyApps = function () {
@@ -28,15 +26,7 @@ const MyApps = function () {
     );
   });
 
-  return (
-    <div>
-      <Header links={[{ path: '/logout', text: 'Logout' }]} />
-      <div className='dashboard'>
-        <NavBar />
-        <div className='dashboard-container'>{appDivs}</div>
-      </div>
-    </div>
-  );
+  return <div className='dashboard-container'>{appDivs}</div>;
 };
 
 export default MyApps;

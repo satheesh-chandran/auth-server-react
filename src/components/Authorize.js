@@ -13,7 +13,6 @@ const Authorize = function () {
   const [username, updateUsername] = useState('');
   const [password, updatePassword] = useState('');
   const [test, updateTestStatus] = useState(true);
-  const [isError, updateAuthStatus] = useState(false);
 
   const history = useHistory();
 
@@ -29,8 +28,6 @@ const Authorize = function () {
       updateAuthStatus(true);
     });
   };
-
-  const query = useQuery();
 
   return (
     <div>

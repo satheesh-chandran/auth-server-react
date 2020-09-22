@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 
 import './App.css';
 import './auth.css';
 
-import Home from './components/Home';
-import LoginPage from './components/LoginPage';
-import SignUpPage from './components/SignUpPage';
-import Dashboard from './components/Dashboard';
+const Home = lazy(() => import('./components/Home'));
+const LoginPage = lazy(() => import('./components/LoginPage'));
+const SignUpPage = lazy(() => import('./components/SignUpPage'));
+const Dashboard = lazy(() => import('./components/Dashboard'));
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
@@ -21,20 +21,22 @@ const App = function () {
 
   return (
     <div className='App'>
-      <Switch location={location}>
-        <Route exact path='/'>
-          {isLoggedIn ? <Redirect to='/dashboard' /> : <Home />}
-        </Route>
-        <Route exact path='/login'>
-          {isLoggedIn ? <Redirect to='/dashboard' /> : <LoginPage />}
-        </Route>
-        <Route exact path='/signup'>
-          {isLoggedIn ? <Redirect to='/dashboard' /> : <SignUpPage />}
-        </Route>
-        <Route path='/dashboard'>
-          {isLoggedIn ? <Dashboard /> : <Redirect to='/' />}
-        </Route>
-      </Switch>
+      <Suspense fallback={<div />}>
+        <Switch location={location}>
+          <Route exact path='/'>
+            {isLoggedIn ? <Redirect to='/dashboard' /> : <Home />}
+          </Route>
+          <Route exact path='/login'>
+            {isLoggedIn ? <Redirect to='/dashboard' /> : <LoginPage />}
+          </Route>
+          <Route exact path='/signup'>
+            {isLoggedIn ? <Redirect to='/dashboard' /> : <SignUpPage />}
+          </Route>
+          <Route path='/dashboard'>
+            {isLoggedIn ? <Dashboard /> : <Redirect to='/' />}
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 };

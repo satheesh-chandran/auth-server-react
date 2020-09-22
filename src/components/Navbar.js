@@ -1,19 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-const links = [
-  { path: '/dashboard', text: 'All stories' },
-  { path: '/dashboard/myStories', text: 'Your stories' },
-  { path: '/dashboard/addStory', text: 'Add story' },
-  { path: '/dashboard/myApps', text: 'Your apps' },
-  { path: '/dashboard/createApp', text: 'Add app' }
-  // { path: '/dashboard/profile', text: 'Your profile' },
-  // { path: '/dashboard/followers', text: 'Followers' },
-  // { path: '/dashboard/following', text: 'Following' },
-  // { path: '/dashboard/findFriends', text: 'Find friends' }
-];
+import { NavLink, useRouteMatch } from 'react-router-dom';
 
 const Navbar = function () {
+  const { url } = useRouteMatch();
+
+  const links = [
+    { path: `${url}`, text: 'All stories' },
+    { path: `${url}/myStories`, text: 'Your stories' },
+    { path: `${url}/addStory`, text: 'Add story' },
+    { path: `${url}/myApps`, text: 'Your apps' },
+    { path: `${url}/createApp`, text: 'Add app' }
+    // { path: '/dashboard/profile', text: 'Your profile' },
+    // { path: '/dashboard/followers', text: 'Followers' },
+    // { path: '/dashboard/following', text: 'Following' },
+    // { path: '/dashboard/findFriends', text: 'Find friends' }
+  ];
+
   const navLinks = links.map((link, index) => (
     <NavLink
       to={link.path}

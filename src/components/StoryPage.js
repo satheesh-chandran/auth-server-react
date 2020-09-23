@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import sendPostRequest from '../utils';
 
 import Input from './Input';
@@ -10,6 +10,8 @@ const StoryPage = function () {
 
   const [message, updateMessage] = useState('');
   const [refresh, updateRefreshState] = useState(false);
+
+  const history = useHistory();
 
   useEffect(() => {
     sendPostRequest('/api/getStory', { id: +id }).then(res => {
@@ -26,14 +28,24 @@ const StoryPage = function () {
   };
 
   const responseDivs = story.responses.map(response => {
+    const deleteResponse = () =>
+      sendPostRequest('/api/deleteResponse', { id: response.id }).then(() => {
+        updateRefreshState(state => !state);
+      });
     return (
       <div className='response' key={`response_${response.id}`}>
         <p>{response.message}</p>
         <p>{response.username}</p>
         <p className='date'>{response.receivedAt}</p>
+        <button onClick={deleteResponse}>Delete</button>
       </div>
     );
   });
+
+  const deleteStory = () =>
+    sendPostRequest('/api/deleteStory', { id: story.id }).then(() => {
+      history.push('/dashboard');
+    });
 
   return (
     <div className='dashboard-container'>
@@ -42,6 +54,7 @@ const StoryPage = function () {
           <h2>{story.title}</h2>
           <p>Creator: {story.name}</p>
           <p className='date'>{story.receivedAt}</p>
+          <button onClick={deleteStory}>Delete story</button>
         </div>
         <div className='body'>
           <p>{story.body}</p>

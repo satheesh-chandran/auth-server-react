@@ -20,6 +20,7 @@ const AddStory = function () {
           placeholder='Enter Title'
           value={title}
           updateChange={updateTitle}
+          type='text'
         />
         <textarea
           placeholder='Enter body'

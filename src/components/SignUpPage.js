@@ -48,13 +48,19 @@ const SignUpPage = function () {
         <label>
           Name <span>*</span>
         </label>
-        <Input placeholder='eg: John' value={name} updateChange={updateName} />
+        <Input
+          placeholder='eg: John'
+          type='text'
+          value={name}
+          updateChange={updateName}
+        />
         <label>
           Username <span>*</span>
         </label>
         <Input
           placeholder='eg: John'
           value={username}
+          type='text'
           updateChange={updateUsername}
         />
         <label>
@@ -63,6 +69,7 @@ const SignUpPage = function () {
         <Input
           placeholder='eg: John@example.com'
           value={email}
+          type='text'
           updateChange={updateEmail}
         />
         <label>
@@ -70,6 +77,7 @@ const SignUpPage = function () {
         </label>
         <Input
           value={company}
+          type='text'
           placeholder='eg: Example Pvt Ltd.'
           updateChange={updateCompany}
         />
@@ -79,6 +87,7 @@ const SignUpPage = function () {
         <Input
           placeholder='eg: John@123'
           value={password}
+          type='password'
           updateChange={updatePassword}
         />
         <button onClick={handleClick}>Signup</button>

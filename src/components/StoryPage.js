@@ -50,6 +50,7 @@ const StoryPage = function () {
           value={message}
           placeholder='You can response to this story'
           updateChange={updateMessage}
+          type='text'
         />
         <button style={{ marginTop: '1%' }} onClick={postResponse}>
           Respond

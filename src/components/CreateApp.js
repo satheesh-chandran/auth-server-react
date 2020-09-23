@@ -47,6 +47,7 @@ const CreateApp = function () {
         <Input
           value={name}
           placeholder='eg: authApp'
+          type='text'
           updateChange={updateName}
         />
         <label>
@@ -55,6 +56,7 @@ const CreateApp = function () {
         <Input
           value={homePage}
           placeholder='eg: http://example.com'
+          type='text'
           updateChange={updateHomepage}
         />
         <label>
@@ -63,6 +65,7 @@ const CreateApp = function () {
         <Input
           value={description}
           placeholder='eg: This is a nice app'
+          type='text'
           updateChange={updateDescription}
         />
         <label>
@@ -71,6 +74,7 @@ const CreateApp = function () {
         <Input
           value={callbackUrl}
           placeholder='eg: /sample/path/'
+          type='text'
           updateChange={updateCallback}
         />
         <button onClick={handleClick}>Register</button>

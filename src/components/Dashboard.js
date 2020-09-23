@@ -32,7 +32,7 @@ const Dashboard = function () {
 
   return (
     <div>
-      <Header links={[{ path: '/logout', text: 'Logout' }]} />
+      <Header />
       <div className='dashboard'>
         <NavBar />
         <Switch location={location}>{routers}</Switch>

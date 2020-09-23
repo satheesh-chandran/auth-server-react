@@ -43,11 +43,13 @@ const Authorize = function () {
             placeholder='eg: John'
             value={username}
             updateChange={updateUsername}
-          />
+            type='text'
+            />
           <label>
             Password <span>*</span>
           </label>
           <Input
+            type='password'
             placeholder='eg: John@123'
             value={password}
             updateChange={updatePassword}

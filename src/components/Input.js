@@ -10,6 +10,7 @@ const Input = function (props) {
       placeholder={props.placeholder}
       value={props.value}
       onChange={handleChange}
+      type={props.type}
     ></input>
   );
 };

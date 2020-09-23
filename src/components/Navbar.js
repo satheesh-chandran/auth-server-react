@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { NavLink, useRouteMatch, useHistory } from 'react-router-dom';
 
-const Navbar = function () {
+const Navbar = function (props) {
   const { url } = useRouteMatch();
 
   const links = [
@@ -16,6 +16,8 @@ const Navbar = function () {
     // { path: '/dashboard/findFriends', text: 'Find friends' }
   ];
 
+  const history = useHistory();
+
   const navLinks = links.map((link, index) => (
     <NavLink
       to={link.path}
@@ -27,7 +29,14 @@ const Navbar = function () {
     </NavLink>
   ));
 
-  return <div className='navbar'>{navLinks}</div>;
+  const toProfile = () => history.push(`/dashboard/user/${props.user.id}`);
+
+  return (
+    <div className='navbar'>
+      <p onClick={toProfile}>Hello {props.user.name}</p>
+      {navLinks}
+    </div>
+  );
 };
 
 export default Navbar;

@@ -35,7 +35,7 @@ const StoryPage = function () {
     return (
       <div className='response' key={`response_${response.id}`}>
         <p>{response.message}</p>
-        <p>{response.username}</p>
+        <p>Responded by, {response.username}</p>
         <p className='date'>{response.receivedAt}</p>
         <button onClick={deleteResponse}>Delete</button>
       </div>

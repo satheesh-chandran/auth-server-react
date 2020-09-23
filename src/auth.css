@@ -322,3 +322,9 @@ h3 {
   visibility: hidden;
   pointer-events: none;
 }
+
+.navbar > p:hover {
+  text-decoration: underline;
+  color: #2ea44f;
+  cursor: pointer;
+}

@@ -11,7 +11,7 @@ import StoryPage from './StoryPage';
 import AllStories from './AllStories';
 import MyStories from './MyStories';
 
-const Dashboard = function () {
+const Dashboard = function (props) {
   const location = useLocation();
 
   const pages = [
@@ -34,7 +34,7 @@ const Dashboard = function () {
     <div>
       <Header />
       <div className='dashboard'>
-        <NavBar />
+        <NavBar user={props.user} />
         <Switch location={location}>{routers}</Switch>
       </div>
     </div>

@@ -11,13 +11,18 @@ const Dashboard = lazy(() => import('./components/Dashboard'));
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
+  const [user, updateUserDetails] = useState({});
   const location = useLocation();
 
   useEffect(() => {
     fetch('/isLoggedIn')
       .then(res => res.json())
-      .then(({ loggedIn }) => updateLoggedInStatus(loggedIn));
-  });
+      .then(res => {
+        updateLoggedInStatus(res.loggedIn);
+        updateUserDetails(res.userDetails);
+      });
+  }, []);
+  console.log(user);
 
   return (
     <div className='App'>
@@ -33,7 +38,7 @@ const App = function () {
             {isLoggedIn ? <Redirect to='/dashboard' /> : <SignUpPage />}
           </Route>
           <Route path='/dashboard'>
-            {isLoggedIn ? <Dashboard /> : <Redirect to='/' />}
+            {isLoggedIn ? <Dashboard user={user} /> : <Redirect to='/' />}
           </Route>
         </Switch>
       </Suspense>

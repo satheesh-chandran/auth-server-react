@@ -6,16 +6,17 @@ a,
 button {
   width: 100px;
   text-decoration: none;
-  color: white;
   border: 1px solid #2ea44f;
-  background-color: #2ea44f;
   border-radius: 2px;
   text-align: center;
-}
-
-button {
   font-size: medium;
   outline: none;
+}
+
+button,
+a {
+  color: white;
+  background-color: #2ea44f;
 }
 
 a:hover,
@@ -23,6 +24,16 @@ button:hover {
   cursor: pointer;
   color: #2ea44f;
   background-color: white;
+}
+
+.response > button {
+  color: #2ea44f;
+  background-color: white;
+}
+
+.response > button:hover {
+  color: white;
+  background-color: #2ea44f;
 }
 
 .topBar {
@@ -203,6 +214,7 @@ h3 {
   height: 10%;
   overflow-x: hidden;
   margin: 1%;
+  cursor: pointer;
 }
 
 .story p {
@@ -327,4 +339,20 @@ h3 {
   text-decoration: underline;
   color: #2ea44f;
   cursor: pointer;
+}
+
+.profileBox {
+  margin: 0 auto;
+  margin-top: 1%;
+  padding: 1%;
+  height: 40%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 1px 1px 3px 1px rgb(174, 174, 174);
+}
+
+.profileBox span {
+  color: red;
 }

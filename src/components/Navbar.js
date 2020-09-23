@@ -10,7 +10,7 @@ const Navbar = function (props) {
     { path: `${url}/addStory`, text: 'Add story' },
     { path: `${url}/myApps`, text: 'Your apps' },
     { path: `${url}/createApp`, text: 'Add app' }
-    // { path: '/dashboard/profile', text: 'Your profile' },
+    // { path: `${url}/user/${props.user.id}`, text: 'Your profile' },
     // { path: '/dashboard/followers', text: 'Followers' },
     // { path: '/dashboard/following', text: 'Following' },
     // { path: '/dashboard/findFriends', text: 'Find friends' }

@@ -10,6 +10,7 @@ import AddStory from './AddStory';
 import StoryPage from './StoryPage';
 import AllStories from './AllStories';
 import MyStories from './MyStories';
+import ProfilePage from './PropfilePage';
 
 const Dashboard = function (props) {
   const location = useLocation();
@@ -21,7 +22,8 @@ const Dashboard = function (props) {
     { path: '/dashboard/app/:id', component: AppDetails },
     { path: '/dashboard/createApp', component: CreateApp },
     { path: '/dashboard/myStories', component: MyStories },
-    { path: '/dashboard/story/:id', component: StoryPage }
+    { path: '/dashboard/story/:id', component: StoryPage },
+    { path: '/dashboard/user/:id', component: ProfilePage }
   ];
 
   const routers = pages.map((page, index) => (

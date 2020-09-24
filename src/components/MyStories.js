@@ -5,7 +5,7 @@ const MyStories = function () {
   const [stories, updateStories] = useState([]);
 
   useEffect(() => {
-    fetch('/api/allStories')
+    fetch('/api/yourStories')
       .then(res => res.json())
       .then(updateStories);
   }, []);

@@ -21,7 +21,7 @@ const App = function () {
         updateLoggedInStatus(res.loggedIn);
         updateUserDetails(res.userDetails);
       });
-  }, []);
+  });
 
   return (
     <div className='App'>

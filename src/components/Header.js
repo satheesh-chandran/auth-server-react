@@ -6,11 +6,7 @@ const Header = function () {
 
   const history = useHistory();
 
-  const logout = function () {
-    fetch('/api/logout').then(() => {
-      history.push('/');
-    });
-  };
+  const logout = () => fetch('/api/logout').then(() => history.push('/'));
 
   return (
     <div className='topBar'>

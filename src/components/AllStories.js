@@ -5,11 +5,13 @@ const AllStories = function () {
   const [stories, updateStories] = useState([]);
 
   useEffect(() => {
-    fetch('/api/yourStories')
+    fetch('/api/allStories')
       .then(res => res.json())
       .then(updateStories);
   }, []);
 
+  if (!stories)
+    return <div className='dashboard-container'>Stories are loading...</div>;
 
   return (
     <div className='dashboard-container'>

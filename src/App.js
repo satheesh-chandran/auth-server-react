@@ -5,9 +5,9 @@ import './App.css';
 import './auth.css';
 
 const Home = lazy(() => import('./components/Home'));
+const Dashboard = lazy(() => import('./components/Dashboard'));
 const LoginPage = lazy(() => import('./components/LoginPage'));
 const SignUpPage = lazy(() => import('./components/SignUpPage'));
-const Dashboard = lazy(() => import('./components/Dashboard'));
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
@@ -22,7 +22,6 @@ const App = function () {
         updateUserDetails(res.userDetails);
       });
   }, []);
-  console.log(user);
 
   return (
     <div className='App'>

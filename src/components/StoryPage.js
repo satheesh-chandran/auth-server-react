@@ -28,6 +28,8 @@ const StoryPage = function () {
   };
 
   const responseDivs = story.responses.map(response => {
+    const toProfile = () => history.push(`/dashboard/user/${response.ownerId}`);
+
     const deleteResponse = () =>
       sendPostRequest('/api/deleteResponse', { id: response.id }).then(() => {
         updateRefreshState(state => !state);
@@ -35,7 +37,12 @@ const StoryPage = function () {
     return (
       <div className='response' key={`response_${response.id}`}>
         <p>{response.message}</p>
-        <p>Responded by, {response.username}</p>
+        <p>
+          Responded by,
+          <span className='creator' onClick={toProfile}>
+            {response.username}
+          </span>
+        </p>
         <p className='date'>{response.receivedAt}</p>
         <button onClick={deleteResponse}>Delete</button>
       </div>

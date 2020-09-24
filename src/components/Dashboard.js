@@ -1,15 +1,15 @@
 import React from 'react';
 import { useLocation, Switch, Route } from 'react-router-dom';
+
 import Header from './Header';
 import NavBar from './Navbar';
-
-import CreateApp from './CreateApp';
-import AppDetails from './AppDetails';
 import MyApps from './MyApps';
 import AddStory from './AddStory';
+import CreateApp from './CreateApp';
 import StoryPage from './StoryPage';
-import AllStories from './AllStories';
 import MyStories from './MyStories';
+import AppDetails from './AppDetails';
+import AllStories from './AllStories';
 import ProfilePage from './PropfilePage';
 
 const Dashboard = function (props) {

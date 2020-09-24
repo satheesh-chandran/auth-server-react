@@ -4,7 +4,6 @@ import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import './App.css';
 import './auth.css';
 
-const Home = lazy(() => import('./components/Home'));
 const Dashboard = lazy(() => import('./components/Dashboard'));
 const LoginPage = lazy(() => import('./components/LoginPage'));
 const SignUpPage = lazy(() => import('./components/SignUpPage'));
@@ -21,14 +20,14 @@ const App = function () {
         updateLoggedInStatus(res.loggedIn);
         updateUserDetails(res.userDetails);
       });
-  });
+  }, []);
 
   return (
     <div className='App'>
       <Suspense fallback={<div />}>
         <Switch location={location}>
           <Route exact path='/'>
-            {isLoggedIn ? <Redirect to='/dashboard' /> : <Home />}
+            {isLoggedIn ? <Redirect to='/dashboard' /> : <LoginPage />}
           </Route>
           <Route exact path='/login'>
             {isLoggedIn ? <Redirect to='/dashboard' /> : <LoginPage />}

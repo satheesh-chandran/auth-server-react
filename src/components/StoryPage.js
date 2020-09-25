@@ -20,6 +20,7 @@ const StoryPage = function () {
   }, [refresh, id]);
 
   const postResponse = function () {
+    if (message.trim() === '') return;
     const options = { storyId: +id, message };
     sendPostRequest('/api/addResponse', options).then(() => {
       updateRefreshState(state => !state);
@@ -38,7 +39,7 @@ const StoryPage = function () {
       <div className='response' key={`response_${response.id}`}>
         <p>{response.message}</p>
         <p>
-          Responded by,
+          Responded by,{' '}
           <span className='creator' onClick={toProfile}>
             {response.username}
           </span>

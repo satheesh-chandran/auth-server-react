@@ -10,7 +10,7 @@ const StoryDiv = function (props) {
     <div className='story'>
       <Link to={`/dashboard/story/${props.story.id}`}>{props.story.title}</Link>
       <p>
-        Creator:
+        Creator :{' '}
         <span className='creator' onClick={toProfile}>
           {props.story.name}
         </span>

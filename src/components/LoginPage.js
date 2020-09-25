@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Input from './Input';
 import TopBar from './TopBar';
@@ -12,10 +12,6 @@ const LoginPage = function () {
   const [test, updateTestStatus] = useState(true);
   const [isError, updateLoginStatus] = useState(false);
 
-  const history = useHistory();
-
-  useEffect(() => () => history.push('/dashboard'), []);
-
   const handleClick = function () {
     const fields = { username, password };
     if (!Object.values(fields).every(value => value)) {
@@ -23,7 +19,7 @@ const LoginPage = function () {
     }
     sendPostRequest('/api/loginToApp', fields).then(res => {
       if (res.status) {
-        return document.location = '/dashboard';
+        return (document.location = '/dashboard');
       }
       updateLoginStatus(true);
     });

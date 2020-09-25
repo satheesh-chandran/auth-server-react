@@ -3,14 +3,19 @@ import StoryDiv from './StoryDiv';
 
 const AllStories = function () {
   const [stories, updateStories] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/api/allStories')
       .then(res => res.json())
-      .then(updateStories);
+      .then(stories => {
+        updateStories(stories);
+        setLoading(false);
+      });
+    return () => setLoading(true);
   }, []);
 
-  if (!stories)
+  if (isLoading)
     return <div className='dashboard-container'>Stories are loading...</div>;
 
   return (

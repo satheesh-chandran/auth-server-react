@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 const Header = function () {
   const [popUpVisibility, changeVisibility] = useState(false);
 
-  const history = useHistory();
-
-  const logout = () => fetch('/api/logout').then(() => history.push('/'));
+  const logout = () =>
+    fetch('/api/logout').then(() => {
+      document.location = '/';
+    });
 
   return (
     <div className='topBar'>

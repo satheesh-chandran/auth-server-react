@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import Input from './Input';
@@ -14,6 +14,8 @@ const LoginPage = function () {
 
   const history = useHistory();
 
+  useEffect(() => () => history.push('/dashboard'), []);
+
   const handleClick = function () {
     const fields = { username, password };
     if (!Object.values(fields).every(value => value)) {
@@ -21,7 +23,7 @@ const LoginPage = function () {
     }
     sendPostRequest('/api/loginToApp', fields).then(res => {
       if (res.status) {
-        return history.push('/');
+        return document.location = '/dashboard';
       }
       updateLoginStatus(true);
     });

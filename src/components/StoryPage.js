@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import moment from 'moment';
 import sendPostRequest from '../utils';
 
 import Input from './Input';
@@ -44,7 +45,9 @@ const StoryPage = function () {
             {response.username}
           </span>
         </p>
-        <p className='date'>{response.receivedAt}</p>
+        <p className='date'>
+          {moment(response.receivedAt).format('MMM Do YYYY, h:m:ss A')}
+        </p>
         <button onClick={deleteResponse}>Delete</button>
       </div>
     );
@@ -61,7 +64,9 @@ const StoryPage = function () {
         <div>
           <h2>{story.title}</h2>
           <p>Creator: {story.name}</p>
-          <p className='date'>{story.receivedAt}</p>
+          <p className='date'>
+            {moment(story.receivedAt).format('MMM Do YYYY, h:m:ss A')}
+          </p>
           <button onClick={deleteStory}>Delete story</button>
         </div>
         <div className='body'>

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Link, useHistory } from 'react-router-dom';
 
 const StoryDiv = function (props) {
@@ -15,7 +16,9 @@ const StoryDiv = function (props) {
           {props.story.name}
         </span>
       </p>
-      <p>{props.story.receivedAt}</p>
+      <p>
+        {moment(props.story.receivedAt).format('MMM Do YYYY, h:m:ss A')}
+      </p>
     </div>
   );
 };

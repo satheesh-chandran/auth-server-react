@@ -37,6 +37,7 @@ const App = function () {
           <Route path='/dashboard'>
             {isLoggedIn ? <Dashboard user={user} /> : <Redirect to='/' />}
           </Route>
+          <Redirect to='/' />
         </Switch>
       </BrowserRouter>
     </div>

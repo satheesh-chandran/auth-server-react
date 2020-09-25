@@ -16,7 +16,7 @@ const MyApps = function () {
         updateApps(res.apps);
         updateRefresh(true);
       });
-  }, [refresh]);
+  }, [refresh, history]);
 
   const appDivs = apps.map(({ id, name }, index) => {
     return (

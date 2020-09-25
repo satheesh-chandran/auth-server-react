@@ -17,7 +17,7 @@ const StoryPage = function () {
     sendPostRequest('/api/getStory', { id: +id }).then(res => {
       updateStory(res);
     });
-  }, [refresh]);
+  }, [refresh, id]);
 
   const postResponse = function () {
     const options = { storyId: +id, message };

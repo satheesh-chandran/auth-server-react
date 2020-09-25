@@ -14,7 +14,7 @@ const AppDetails = function () {
       }
       updateAppDetails(res.details);
     });
-  }, []);
+  }, [id, history]);
 
   if (appDetails === null) return <div className='dashboard-container'></div>;
 

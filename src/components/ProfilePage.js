@@ -8,7 +8,7 @@ const ProfilePage = function () {
 
   useEffect(() => {
     sendPostRequest('/api/userDetails', { id: +id }).then(updateUserData);
-  }, []);
+  }, [id]);
 
   if (!user) return <div>Content loading...</div>;
 

@@ -1,17 +1,16 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 import './App.css';
 import './auth.css';
 
-const Dashboard = lazy(() => import('./components/Dashboard'));
-const LoginPage = lazy(() => import('./components/LoginPage'));
-const SignUpPage = lazy(() => import('./components/SignUpPage'));
+import Dashboard from './components/Dashboard';
+import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 
 const App = function () {
   const [isLoggedIn, updateLoggedInStatus] = useState(false);
   const [user, updateUserDetails] = useState({});
-  const location = useLocation();
 
   useEffect(() => {
     fetch('/isLoggedIn')
@@ -24,8 +23,8 @@ const App = function () {
 
   return (
     <div className='App'>
-      <Suspense fallback={<div />}>
-        <Switch location={location}>
+      <BrowserRouter>
+        <Switch>
           <Route exact path='/'>
             {isLoggedIn ? <Redirect to='/dashboard' /> : <LoginPage />}
           </Route>
@@ -39,7 +38,7 @@ const App = function () {
             {isLoggedIn ? <Dashboard user={user} /> : <Redirect to='/' />}
           </Route>
         </Switch>
-      </Suspense>
+      </BrowserRouter>
     </div>
   );
 };

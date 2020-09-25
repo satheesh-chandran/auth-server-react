@@ -14,7 +14,6 @@ const ProfilePage = function () {
 
   const { name, username, email, company } = user;
 
-  console.log(user);
   return (
     <div className='dashboard-container'>
       <div className='profileBox'>

@@ -10,7 +10,7 @@ import StoryPage from './StoryPage';
 import MyStories from './MyStories';
 import AppDetails from './AppDetails';
 import AllStories from './AllStories';
-import ProfilePage from './PropfilePage';
+import ProfilePage from './ProfilePage';
 
 const Dashboard = function (props) {
   const location = useLocation();

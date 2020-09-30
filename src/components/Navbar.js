@@ -1,22 +1,18 @@
 import React from 'react';
-import { NavLink, useRouteMatch, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, Redirect } from 'react-router-dom';
 
 const Navbar = function (props) {
-  const { url } = useRouteMatch();
-
   const links = [
-    { path: `${url}`, text: 'All stories' },
-    { path: `${url}/myStories`, text: 'Your stories' },
-    { path: `${url}/addStory`, text: 'Add story' },
-    { path: `${url}/myApps`, text: 'Your apps' },
-    { path: `${url}/createApp`, text: 'Add app' }
-    // { path: `${url}/user/${props.user.id}`, text: 'Your profile' },
-    // { path: '/dashboard/followers', text: 'Followers' },
-    // { path: '/dashboard/following', text: 'Following' },
-    // { path: '/dashboard/findFriends', text: 'Find friends' }
+    { path: '/', text: 'All stories' },
+    { path: '/myStories', text: 'Your stories' },
+    { path: '/addStory', text: 'Add story' },
+    { path: '/myApps', text: 'Your apps' },
+    { path: '/createApp', text: 'Add app' }
   ];
 
   const history = useHistory();
+
+  if (props.user === null) return <Redirect to='/login' />;
 
   const navLinks = links.map((link, index) => (
     <NavLink
@@ -29,7 +25,7 @@ const Navbar = function (props) {
     </NavLink>
   ));
 
-  const toProfile = () => history.push(`/dashboard/user/${props.user.id}`);
+  const toProfile = () => history.push(`/user/${props.user.id}`);
 
   return (
     <div className='navbar'>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import sendPostRequest from '../utils';
 
-const AppDetails = function () {
+const AppDetails = function (props) {
   const { id } = useParams();
   const history = useHistory();
   const [appDetails, updateAppDetails] = useState(null);
@@ -10,11 +10,15 @@ const AppDetails = function () {
   useEffect(() => {
     sendPostRequest('/api/getAppDetails', { id: +id }).then(res => {
       if (res.protected) {
-        return history.push('/dashboard');
+        return history.push('/');
       }
       updateAppDetails(res.details);
     });
   }, [id, history]);
+
+  if (props.user === null) {
+    return <Redirect to='/login' />;
+  }
 
   if (appDetails === null) return <div className='dashboard-container'></div>;
 

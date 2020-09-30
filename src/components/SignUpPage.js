@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import Input from './Input';
 import TopBar from './TopBar';
 
 import sendPostRequest from '../utils';
 
-const SignUpPage = function () {
+const SignUpPage = function (props) {
   const [name, updateName] = useState('');
   const [username, updateUsername] = useState('');
   const [email, updateEmail] = useState('');
@@ -28,6 +28,10 @@ const SignUpPage = function () {
       updateSignStatus(true);
     });
   };
+
+  if (props.user !== null) {
+    return <Redirect to='/' />;
+  }
 
   if (usernameExists) {
     return (

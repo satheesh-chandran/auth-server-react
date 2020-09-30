@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Redirect } from 'react-router-dom';
 import moment from 'moment';
 import sendPostRequest from '../utils';
 
 import Input from './Input';
 
-const StoryPage = function () {
+const StoryPage = function (props) {
   const [story, updateStory] = useState({ responses: [] });
   const { id } = useParams();
 
@@ -20,6 +20,10 @@ const StoryPage = function () {
     });
   }, [refresh, id]);
 
+  if (props.user === null) {
+    return <Redirect to='/login' />;
+  }
+
   const postResponse = function () {
     if (message.trim() === '') return;
     const options = { storyId: +id, message };
@@ -30,7 +34,7 @@ const StoryPage = function () {
   };
 
   const responseDivs = story.responses.map(response => {
-    const toProfile = () => history.push(`/dashboard/user/${response.ownerId}`);
+    const toProfile = () => history.push(`/user/${response.ownerId}`);
 
     const deleteResponse = () =>
       sendPostRequest('/api/deleteResponse', { id: response.id }).then(() => {
@@ -55,7 +59,7 @@ const StoryPage = function () {
 
   const deleteStory = () =>
     sendPostRequest('/api/deleteStory', { id: story.id }).then(() => {
-      history.push('/dashboard');
+      history.push('/');
     });
 
   return (

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import sendPostRequest from '../utils';
 
-const ProfilePage = function () {
+const ProfilePage = function (props) {
   const [user, updateUserData] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     sendPostRequest('/api/userDetails', { id: +id }).then(updateUserData);
   }, [id]);
+
+  if (props.user === null) {
+    return <Redirect to='/login' />;
+  }
 
   if (!user) return <div>Content loading...</div>;
 

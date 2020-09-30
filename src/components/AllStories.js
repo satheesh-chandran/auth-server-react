@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import StoryDiv from './StoryDiv';
 
-const AllStories = function () {
+const AllStories = function (props) {
   const [stories, updateStories] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -14,6 +15,10 @@ const AllStories = function () {
       });
     return () => setLoading(true);
   }, []);
+
+  if (props.user === null) {
+    return <Redirect to='/login' />;
+  }
 
   if (isLoading)
     return <div className='dashboard-container'>Stories are loading...</div>;

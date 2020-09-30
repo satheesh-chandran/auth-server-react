@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import Input from './Input';
 import TopBar from './TopBar';
 
 import sendPostRequest from '../utils';
 
-const LoginPage = function () {
+const LoginPage = function (props) {
   const [username, updateUsername] = useState('');
   const [password, updatePassword] = useState('');
   const [test, updateTestStatus] = useState(true);
@@ -19,11 +19,15 @@ const LoginPage = function () {
     }
     sendPostRequest('/api/loginToApp', fields).then(res => {
       if (res.status) {
-        return (document.location = '/dashboard');
+        return (document.location = '/');
       }
       updateLoginStatus(true);
     });
   };
+
+  if (props.user !== null) {
+    return <Redirect to='/' />;
+  }
 
   if (isError) {
     return (

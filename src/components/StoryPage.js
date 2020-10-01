@@ -52,7 +52,11 @@ const StoryPage = function (props) {
         <p className='date'>
           {moment(response.receivedAt).format('MMM Do YYYY, h:m:ss A')}
         </p>
-        <button onClick={deleteResponse}>Delete</button>
+        {props.user.id === response.ownerId ? (
+          <button onClick={deleteResponse}>Delete</button>
+        ) : (
+          <></>
+        )}
       </div>
     );
   });
@@ -71,7 +75,11 @@ const StoryPage = function (props) {
           <p className='date'>
             {moment(story.receivedAt).format('MMM Do YYYY, h:m:ss A')}
           </p>
-          <button onClick={deleteStory}>Delete story</button>
+          {props.user.id === story.ownerId ? (
+            <button onClick={deleteStory}>Delete story</button>
+          ) : (
+            <></>
+          )}
         </div>
         <div className='body'>
           <p>{story.body}</p>

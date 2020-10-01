@@ -7,7 +7,7 @@ const MyStories = function (props) {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/yourStories')
+    fetch('/api/myStories')
       .then(res => res.json())
       .then(res => {
         updateStories(res);

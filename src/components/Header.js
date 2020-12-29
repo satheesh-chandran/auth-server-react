@@ -4,9 +4,7 @@ const Header = function () {
   const [popUpVisibility, changeVisibility] = useState(false);
 
   const logout = () =>
-    fetch('/api/logout').then(() => {
-      document.location = '/';
-    });
+    fetch('/api/logout').then(() => (document.location = '/'));
 
   return (
     <div className='topBar'>

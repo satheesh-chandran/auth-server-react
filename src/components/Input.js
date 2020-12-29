@@ -1,18 +1,12 @@
 import React from 'react';
 
-const Input = function (props) {
-  const handleChange = function (event) {
-    props.updateChange(event.target.value);
-  };
-
-  return (
-    <input
-      placeholder={props.placeholder}
-      value={props.value}
-      onChange={handleChange}
-      type={props.type}
-    ></input>
-  );
-};
+const Input = ({ placeholder, value, updateChange, type }) => (
+  <input
+    placeholder={placeholder}
+    value={value}
+    onChange={event => updateChange(event.target.value)}
+    type={type}
+  ></input>
+);
 
 export default Input;
